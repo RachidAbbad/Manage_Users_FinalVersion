@@ -20,7 +20,7 @@ public class MyContext  extends Application {
         RealmConfiguration configuration = new RealmConfiguration.Builder().name("users_realm").build();
         Realm.setDefaultConfiguration(configuration);
         this.services=new DefaultServices(new RealmUserDao());
-        
+
     }
 
     public Services getServices() {
