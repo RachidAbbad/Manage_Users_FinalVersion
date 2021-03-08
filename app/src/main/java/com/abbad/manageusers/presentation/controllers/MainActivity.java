@@ -1,14 +1,10 @@
 package com.abbad.manageusers.presentation.controllers;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.recyclerview.widget.ItemTouchHelper;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.abbad.manageusers.R;
 import com.abbad.manageusers.Utils.CustomUserAdapter;
@@ -17,20 +13,28 @@ import com.abbad.manageusers.presentation.actions.Delete_Update_Event;
 import com.abbad.manageusers.presentation.actions.SwipeToDeleteEvent;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 
 public class MainActivity extends AppCompatActivity {
 
+    //private static MainActivity instance;
     private AppCompatButton btnAddUser;
     private SwipeMenuListView listView;
     private MyContext context;
     private SwipeToDeleteEvent eventSwipe;
     private Delete_Update_Event eventDeleteUpdate;
     private AddNewUser addNewUser;
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //instance = this;
+        realm = Realm.getDefaultInstance();
         context= (MyContext) getApplicationContext();
         listView = findViewById(R.id.list_view);
         btnAddUser = findViewById(R.id.addUserBtn);
@@ -52,5 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 addNewUser.show(getSupportFragmentManager(),"AddUserBottomFragement");
             }
         });
+
+        /*public static MainActivity getInstance(){
+            return
+        }*/
     }
 }

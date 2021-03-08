@@ -1,7 +1,9 @@
+
+
 plugins {
     id 'com.android.application'
 }
-
+apply plugin: 'realm-android'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

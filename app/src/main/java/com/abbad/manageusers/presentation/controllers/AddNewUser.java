@@ -54,7 +54,7 @@ public class AddNewUser extends BottomSheetDialogFragment
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name.getText().length()!=0 && userName.getText().toString().length()!=0 || email.getText().toString().length()!=0){
+                if(name.getText().length()!=0 && userName.getText().toString().length()!=0 && email.getText().toString().length()!=0){
                     User userModel = new User(userName.getText().toString(),name.getText().toString(),email.getText().toString());
                     userModel.setId(adapter.getCount()+1);
                     context.getServices().addUser(userModel);
